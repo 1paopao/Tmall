@@ -9,3 +9,22 @@ a{text-decoration:none; color:#333;}
 h1,h2,h3,h4,h5,h6{font-weight:100;}
 body{font-size:12px; font-family:"微软雅黑";width:100%;}
 input,a{outline:none;}
+.fl {float:left}
+.fr {float: right;}
+i {font-style: normal;}
+/*=======icon图标======*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('../download/font/iconfont.eot');
+  src: url('../download/font/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../download/font/iconfont.woff') format('woff'),
+  url('../download/font/iconfont.ttf') format('truetype'),
+  url('../download/font/iconfont.svg#iconfont') format('svg');
+}
+/*================
+ * 中间公共的宽度
+ * ===============*/
+.top,.head,.nav,.main{
+	width:1190px;
+	margin:0 auto;
+}
