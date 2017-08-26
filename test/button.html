@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/login.css"/>
+		<script src="../scripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="login" id="login">
+            <h3>密码登录</h3>
+            <div>
+	            <label for="">手机号:</label>
+	            <input type="text" id="phone1" class="phone1"  placeholder="请输入手机号">
+            </div>
+            <div>
+	            <label for="">密码:</label>
+	            <input type="passowrd" id="password" class="password"  placeholder="请输入密码">
+            </div>
+            <button  class="btn"> 登&nbsp;录 </button>
+           
+           	<p class="">
+           	 	<a href="javascript:;">免费注册</a>
+            	<a href="javascript:;">二维码登录</a>
+            </p>
+        </div>
+	</body>
+	<script type="text/javascript">
+		$('.btn').click(function(){
+//			var str = document.getElementById('phone1').value;
+			var str = $('.phone1').val();
+			alert(1);
+			alert(str);
+		})
+	</script>
+</html>

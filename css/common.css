@@ -24,7 +24,106 @@ i {font-style: normal;}
 /*================
  * 中间公共的宽度
  * ===============*/
-.top,.head,.nav,.main{
+.top,.head,.nav,.main,.section,.shadow,.footer,.bottom{
 	width:1190px;
 	margin:0 auto;
+}
+/*================
+ * bottom
+ * ===============*/
+
+/*bottom*/
+.bottom-wrap {
+    width:100%;
+    height:176px;
+    background: #c40000;
+}
+.bottom p {
+    line-height: 30px;
+}
+.bottom .botP {
+    color:gray;
+}
+
+
+/*==========
+ * 注册登录相同样式
+ ==========*/
+.login-logo {
+    width:100%;
+    height:90px;
+    overflow: hidden;
+}
+.login-logo a {
+    display: block;
+    width: 380px;
+    height: 54px;
+    background: url(../images/login/login01.png) no-repeat left top;
+    margin-left:20px;
+    margin-top: 34px;
+}
+.login-cont {
+    font-family: 'iconfont';
+    width:100%;
+    height:600px;
+    background: url(../images/login/login03.jpg) no-repeat center center/cover;
+    position: relative;
+}
+.login {
+	width:350px;
+    height:400px;
+    background: #fff;
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    margin-top: -200px;
+    padding: 30px 0 0 20px;
+    box-sizing: border-box;
+}
+.login h3 {
+	font-size: 24px;
+    font-weight:500;
+    margin-bottom:20px;
+}
+.login label {
+	display: inline-block;
+	width:68px;
+	font-size: 16px;
+	text-align: right;
+}
+.login input {
+	width: 213px;
+    height: 32px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    text-indent: 5px;
+    outline: none;
+    border: 0;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+    box-shadow:2px 2px 3px #aaaaaa;
+}
+.login .sp-yzm{
+	display: inline-block;
+    margin-left: 110px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    background: #ccc;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.login .btn{
+	 display: block;
+    width: 300px;
+    background: red;
+    line-height: 42px;
+    margin: 10px auto;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border:0px;
 }

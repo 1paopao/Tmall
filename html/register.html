@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <!--公共的js-->
+    <link rel="stylesheet" href="../css/common.css">
+   	<!--引入jquery-->
+   	<script src="../scripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script> 
+    <script src="../js/register.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <!--login-logo-->
+    <div class="login-logo">
+        <a href="javascript:;"></a>
+    </div> 
+    <!--注册-->
+    <div class="login-cont">
+        <div class="login" id="login">
+            <h3>免费注册</h3>
+            <div>
+	            <label for="">手机号:</label>
+	            <input type="text" id="phone" class="phone"  placeholder="请输入手机号">
+            </div>
+            <div>
+	            <label for="">验证码:</label>
+	            <input type="text" id="yzm" class="yzm"  placeholder="请输入验证码">
+	            <span class="sp-yzm" style="cursor: pointer;display:none"></span>
+            </div>
+            <div>
+	            <label for="">设置密码:</label>
+	            <input type="passowrd" id="setPas" class="setPas"  placeholder="请设置密码">
+            </div>
+            <button href="login.html" class="btn" onclick="checkRegister()"> 注&nbsp;册 </button>
+        </div>
+	</div>
+    <!-------------------------bottom---------------------------->
+    <div class="bottom-wrap" style="background:#fff;">
+        <div class="bottom">
+            <p>
+                关于天猫  帮助中心  开放平台  诚聘英才  联系我们  网站合作  法律声明及隐私权政策  知识产权  廉正举报
+            </p>
+            <p>
+                阿里巴巴集团  | 淘宝网  | 天猫 | 聚划算 | 全球速卖通 | 阿里巴巴国际交易市场 | 1688 | 阿里妈妈 | 飞猪 | 阿里云计算 | YunOS | 阿里通信 | 万网 | 高德 | UC | 友盟 | 虾米 | 阿里星球 | 来往 | 钉钉 | 支付宝
+            </p>
+            <p class="botP">
+                增值电信业务经营许可证： 浙B2-20110446 网络文化经营许可证：浙网文[2015]0295-065号 12318举报
+            </p>
+            <p class="botP">
+                互联网药品信息服务资质证书编号：浙-（经营性）-2017-0005   浙公网安备 33010002000120号
+            </p>
+            <p class="botP">
+                © 2003-2017 TMALL.COM 版权所有
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -7,6 +7,11 @@
 		<link rel="stylesheet" href="css/common.css" />
 		<!--首页的样式-->
 		<link rel="stylesheet" href="css/index.css" />
+		<!--jquery-->
+		<script src="scripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<!--模板js-->
+		<script src="scripts/template.js" type="text/javascript" charset="utf-8"></script>
+		
 	</head>
 	<body>
 		<!------------------------------------top  顶层-------------------------------->
@@ -224,7 +229,7 @@
 			<!--mainLeft-->
 			<div id="main1" class="main1 fl">
 				<ul id="mainLeft" class="mainLeft">
-					<li>
+					<!--<li>
 						<div class="liCont" style="border-top:0">
 							<i>&#xe623;</i>
 							<div class="food">
@@ -345,7 +350,6 @@
 									<span>></span>
 								</p>
 								<p>
-									
 									<a href="javascript:;">牛奶</a>
 									<a href="javascript:;">零食</a>
 									<a href="javascript:;">饼干</a>
@@ -354,32 +358,49 @@
 								</p>
 							</div>
 						</div>
-					</li>
-					<li>
-						<div class="liCont">
-							<i>&#xe675;</i>
-							<div class="food">
-								<p class="mainClassify">
-									<a href="javascript:;">生鲜水果</a>
-									<span>></span>
-								</p>
-								<p>
-									
-									<a href="javascript:;">牛奶</a>
-									<a href="javascript:;">零食</a>
-									<a href="javascript:;">饼干</a>
-									<a href="javascript:;">方便面</a>
-									<a href="javascript:;">粮油</a>
-								</p>
+					</li>-->
+					<script id="foods" type="text/html">
+						{{each foods as item}}
+						<li>
+							<div class="liCont">
+								{{each item as value}}
+								<i>{{value.img}}</i>
+								<div class="food">
+									<p class="mainClassify">
+										<a href="{{value.link}}">{{value.title}}</a>
+										<span>></span>
+									</p>
+									<p>
+										{{each value.class as value1}}
+											<a href="{{value1.link}}">{{value1.title}}</a>
+										{{/each}}
+									</p>
+								</div>
+								{{/each}}
 							</div>
-						</div>
-					</li>
+						</li>
+						{{/each}}
+					</script>
+				
 				</ul>
 				<!--滑动的内容-->
 				<div id="leftCont" class="leftCont">
 					<!--左侧的分类-->
-					<div id="subview" class="subview">
-						<div class="subview-li">
+					<div id="subview1" class="subview">
+						<script id="subview" type="text/html">
+							{{each subview as item}}
+								<div class="subview-li">
+									<h4>{{item.title}}</h4>
+									<p>
+										{{each item.subList as item1}}
+											<a href="javascript:;">{{item1}}</a>
+										{{/each}}
+									</p>
+								</div>
+							{{/each}}
+						
+						
+						<!--<div class="subview-li">
 							<h4>进口牛奶</h4>
 							<p>
 								<a href="javascript:;">进口纯牛奶</a>
@@ -469,23 +490,36 @@
 								<a href="javascript:;">进口有机酸奶</a>
 							</p>
 						</div>
-						<div class="subview-promoto">
-							<div id="promoto1" class="promoto1">
-								<h4>进口牛奶1</h4>
-								<p>
-									<a href="javascript:;">进口纯牛奶</a>
-									<a href="javascript:;">进口酸奶</a>
-									<a href="javascript:;">进口</a>
-								</p>
+					-->
+							<div class="subview-promoto">
+								{{each promoto as pro}}
+									<div id="promoto2" class="promoto1">
+										<h4>{{pro.title}}</h4>
+										<p>
+											{{each pro.subList as subpro}}
+												<a href="javascript:;">{{subpro}}</a>
+											{{/each}}
+										</p>
+									</div>
+								{{/each}}
+							<!--<div id="promoto1" class="promoto1">
+									<h4>进口牛奶1</h4>
+									<p>
+										<a href="javascript:;">进口纯牛奶</a>
+										<a href="javascript:;">进口酸奶</a>
+										<a href="javascript:;">进口</a>
+									</p>
+								</div>
+								<div id="promoto2" class="promoto1">
+									<h4>进口牛奶2</h4>
+									<p>
+										<a href="javascript:;">进口纯牛奶</a>
+										<a href="javascript:;">进口酸奶</a>
+									</p>
+								</div>
+							-->
 							</div>
-							<div id="promoto2" class="promoto2">
-								<h4>进口牛奶2</h4>
-								<p>
-									<a href="javascript:;">进口纯牛奶</a>
-									<a href="javascript:;">进口酸奶</a>
-								</p>
-							</div>
-						</div>
+						</script>
 					</div>
 				</div>
 			</div>
@@ -1008,4 +1042,7 @@
 			</ul>
 		</div>
 	</body>
+	<!--引入index.js-->
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	
 </html>
