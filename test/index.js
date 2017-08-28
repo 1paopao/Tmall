@@ -36,5 +36,6 @@ $(function(){
 		//二级菜单显示
 		$('#leftCont').fadeOut();
 	});
+	
 
 })

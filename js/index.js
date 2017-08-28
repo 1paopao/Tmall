@@ -7,7 +7,86 @@ $(function(){
 });
 
 
-/*显示左侧一级菜单*/
+/*==============页面滚动===============*/
+$(document).scroll(function(){
+	//设置为全局，供页面功能使用
+	iScrH = $(this).scrollTop();
+	//导航定位
+	showMenu();
+	
+	
+	
+});
+
+
+/*========导航定位=============*/
+function showMenu(){
+	//获取页面滚动的高度，左侧菜单的相对文档的距离，和导航栏相对文档的距离
+	var 
+		iConH = $('.cont1').offset().top,
+		iH    = $('.nav-wrap').offset().top;
+	//当页面滚动的高度大于等于top的时候
+	if(parseInt(iScrH) >= parseInt(iH)) {
+		$('.nav-wrap').css({
+			'position':'fixed',
+			'background':'#fff',
+			'top':'0',
+			'z-index':'4',
+			'border-top':'1px solid #2f2f2f',
+			'border-bottom':'2px solid #2f2f2f'
+		});
+	//当滚动的高度小于固定的top值，回到原来的位置
+		if(parseInt(iScrH) < 122) {
+			$('.nav-wrap').css({
+				'position':'relative',
+				'background':'#fff',
+				'top':'120',
+				'z-index':'1',
+				'border-top':'none',
+				'border-bottom':'none'
+				}
+			);
+			$('.nav').css({
+				'border-bottom':'2px solid #2f2f2f'
+			});
+		}
+	}
+	
+	//鼠标移动到菜单的时候显示分类
+	if(parseInt(iScrH) >= parseInt(iConH)) {
+		$('.classify').mouseenter(function(){
+			$('#main1').css({
+					'width':'240px',
+					'position':'fixed',
+					'top':'38px',
+					'z-index':'1'
+			});
+		});
+		
+		//鼠标离开菜单，菜单消失
+		$('#main1').mouseleave(function(){
+			$('#main1').css({
+				'width':'240px',
+				'position':'relative',
+				'top':'0px',
+				'z-index':'2'
+			});
+		});
+
+		//当小于它的top的时候，回到原来的位置
+		if(parseInt(iScrH) <= 781) {
+			$('#main1').css({
+				'width':'240px',
+				'position':'relative',
+				'top':'0px',
+				'z-index':'0'
+			});
+		}
+	}
+};
+
+
+/*=============显示左侧一级菜单=============*/
 function showMainLeft() {
 	//获取一级菜单的内容
 	$.get('data/list.json',function(data){
@@ -42,6 +121,14 @@ function showLeftCont() {
 			//设置显示模块的top值
 			$('#leftCont').css({'top':　a});
 		})
-	})
+	});
+	
+	//定位到整个菜单div,这样鼠标才能进入
+	$('#main1').on('mouseleave',function(){
+		//二级菜单消失
+		$('#leftCont').fadeOut();
+	});
 };
+
+
 
