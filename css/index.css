@@ -8,11 +8,6 @@ body {
 }
 
 
-
-
-
-
-
 /*================
  * main
  * ===============*/
@@ -356,6 +351,7 @@ h4 {
 	width:100%;
 	height:40px;
 	border-bottom:2px solid #000000;
+	overflow: hidden;
 }
 .cont1-top ul {
 	overflow: hidden;
@@ -410,7 +406,6 @@ h4 {
 .cbcont {
 	width:800px;
 	height:558px;
-	margin-top:-8px;
 }
 .cbcont a {
 	float:left;
@@ -440,7 +435,7 @@ h4 {
 }
 /*右边*/
 .cbRight {
-	margin-top: -8px;
+	
 }
 .cheap {
 	width: 150px;
@@ -452,9 +447,11 @@ h4 {
     display: block;
 }
 .cbRight .cbRighta {
+	
+}
+.picright {
 	margin-top: 30px;
 }
-
 
 /*==================
     floor
@@ -478,6 +475,10 @@ h4 {
 }
 .floor .floorpic {
 	height:60px;
+}
+.active {
+	color:#fff;
+	background: #e4593a;
 }
 
 

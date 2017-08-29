@@ -32,7 +32,8 @@ i {font-style: normal;}
 .shadow,
 .footer,
 .bottom,
-.single{
+.single,
+.view{
 	width:1190px;
 	margin:0 auto;
 }

@@ -62,7 +62,7 @@ function checkRegister() {
 		}
  	}
  	alert('注册成功，请登录！');
-// 	$(location).prop('href','login.html');
-//	window.location.href = "secondPHP/Tmall2/html/login.html";
+ 	//跳转页面
+	window.location.href = '../html/login.html';
 }
 

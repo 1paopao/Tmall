@@ -8,23 +8,25 @@ function checkLogin() {
 		alert('请输入信息！');
 		return false;
 	}else {
-		//获取JSON接口的数据
-		$.get('../data/users.json',function(data) {
-			//遍历信息进行比较
+		$.get('../data/users.json',function(data){
 			$.each(data,function(i,n){
-				//查找是否含有
-				if(sPhone !== data[i].phone  &&  sPass !==  data[i].pass) {
-					alert('信息不匹配');
+//				console.log(data[i].phone);
+//				console.log(sPhone);
+				//如果手机号和密码都验证成功
+				if(data[i].phone == sPhone && data[i].pass == sPass) {
+					alert('登录成功！');
+					window.location.href = '../index3.html?'+data[i].name;
+					return false;
+				}else {
+					alert('信息错误！');
 					return false;
 				}
 			})
-			alert('天猫超市欢迎你');
-		});
-		
-		window.location.href = '../index1.html';
-		//跳转页面
+		})
 	}
 	
-//		$(window).load('../html/register.html');
-		
+	//然后清空内容
+	$('#phone').empty();
+	$('#password').empty();
 }
+

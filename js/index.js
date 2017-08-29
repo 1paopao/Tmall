@@ -4,19 +4,83 @@ $(function(){
 	showMainLeft();
 	//显示二级菜单
 	showLeftCont();
+	//显示首页内容
+	showFruits();
 });
 
 
+/*=============显示首页的列表内容=============*/
+function showFruits() {
+	$.get('data/fruit.json',function(data) {
+		//获取JSON中元素的个数
+		var iLength = data.length;
+		console.log(iLength);
+		//遍历每一个对象
+		$.each(data,function(i,n){
+			/*获取每一个对象的对应的内容，然后每一项添加在后面，注意这里用append*/
+			var fruits = template('fruits',data[i]);
+			$('#section').append(fruits);
+		})
+	});
+};
+
+
 /*==============页面滚动===============*/
+var flag   = true;
+
 $(document).scroll(function(){
 	//设置为全局，供页面功能使用
 	iScrH = $(this).scrollTop();
 	//导航定位
 	showMenu();
 	
-	
-	
+	floor();
 });
+
+function floor() {
+/*==========楼梯==============*/
+	
+	//当滚动的高度大于550的时候，左侧楼梯显示
+	if(flag){
+		if(iScrH > 550) {
+			$('.floor').fadeIn();
+		}else {
+			$('.floor').fadeOut();
+		}
+	}
+	
+	//遍历内容块
+//	console.log(flag);
+	if(flag){
+		$('.section .cont1').each(function(){
+		if($(this).offset().top + $(this).height() >= iScrH) {
+			$('.floor li').eq($(this).index() - 1).addClass('active')
+			.siblings().removeClass('active');
+			return false;
+		}
+	});
+	}
+	
+	//鼠标点击楼梯的每个元素
+	$('.floor li').off("click").click(function(){
+		flag = false;
+		var index = $(this).index();
+		//改变背景颜色
+		$(this).addClass('active').siblings().removeClass('active');
+		//获取相对于滚动的top
+		//console.log($('.section .cont1').eq(index).offset().top);
+	    var $top = $('.section .cont1').eq(index).offset().top;
+	    console.log($top);
+	    $('body,html').animate({"scrollTop":$top},500,function(){
+	    	flag = true;
+	    });
+	});
+}
+
+
+	
+	
+
 
 
 /*========导航定位=============*/
