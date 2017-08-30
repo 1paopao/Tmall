@@ -14,7 +14,7 @@ function showFruits() {
 	$.get('data/fruit.json',function(data) {
 		//获取JSON中元素的个数
 		var iLength = data.length;
-		console.log(iLength);
+//		console.log(iLength);
 		//遍历每一个对象
 		$.each(data,function(i,n){
 			/*获取每一个对象的对应的内容，然后每一项添加在后面，注意这里用append*/

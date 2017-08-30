@@ -33,7 +33,9 @@ i {font-style: normal;}
 .footer,
 .bottom,
 .single,
-.view{
+.view,
+.listCont,
+.cartnav{
 	width:1190px;
 	margin:0 auto;
 }
