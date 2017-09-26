@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商品评论</title>
+		<!--公共的样式-->
+		<link rel="stylesheet" href="../css/common.css" />
+		<!--首页的样式-->
+		<link rel="stylesheet" href="../css/view.css" />
+		<!--jquery-->
+		<script src="../scripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<!--模板js-->
+		<script src="../scripts/template.js" type="text/javascript" charset="utf-8"></script>
+			<!--jquery cookie插件-->
+		<script src="../scripts/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<!------------------------------------top  顶层-------------------------------->
+		<div id="topWrap" class="topWrap">
+			<!--top 内容-->
+			<div id="top" class="top">
+				<!--top-left-->
+				<ul id="topLeft" class="topLeft">
+					<li>
+						<em>&#xe60f;&nbsp;</em>
+						<a href="../index.html">天猫首页</a>
+					</li>
+					<li>
+						喵，<span id="user" style="color:#e4593a"> </span>欢迎来天猫
+					</li>
+					<li>
+						<a href="login.html">请登录</a>
+					</li>
+					<li>
+						<a href="register.html">免费注册</a>
+					</li>
+				</ul>
+				<!--top-right-->
+				<ul id="topRight" class="topRight">
+					<li id="myTao" class="myTao commonList">
+						<a href="javascript:;">我的淘宝</a>
+						<i></i>
+						<!--二级菜单  我的淘宝-->
+						<ul id="subTao" class="subTao commonSub">
+							<li><a href="javascript:;">已买到的宝贝</a></li>
+							<li><a href="javascript:;">已卖出的宝贝</a></li>
+						</ul>
+					</li>
+					<li>
+						<em style="font-size:18px;">&#xe607;</em>
+						<a href="javascript:;">我关注的品牌</a>
+					</li>
+					<li>
+						<em style="font-size:18px;">&#xe605;</em>
+						<a href="cart.html">购物车</a>
+					</li>
+					<li id="collect" class="collect commonList">
+						<a href="javascript:;">收藏夹</a>
+						<i></i>
+						<!--二级菜单  收藏夹-->
+						<ul id="subCollect" class="subCollect commonSub">
+							<li><a href="javascript:;">收藏的宝贝</a></li>
+							<li><a href="javascript:;">收藏的店铺</a></li>
+						</ul>
+					</li>
+					<li>|</li>
+					<li id="phone" class="phone">
+						<em style="font-size:18px;">&#xe602;</em>
+						<a href="javascript:;">手机版</a>
+						
+						<div id="subPhone" class="subPhone">
+							<span></span>
+							<p class="ewm"></p>
+							<p></p>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;">淘宝网</a>
+					</li>
+					<li id="merchant" class="merchant commonList">
+						<a href="javascript:;">商家支持</a>
+						<i></i>
+						<ul id="subChant" class="subChant commonSub">
+							<li>
+								<strong>商家:</strong>
+								<p>
+									<a href="javascript:;">商家中心&nbsp;&nbsp;</a>
+									<a href="javascript:;">商家注入</a>
+								</p>
+								<p>
+									<a href="javascript:;">运营服务&nbsp;&nbsp;</a>
+									<a href="javascript:;">商家品控</a>
+								</p>
+								<p>
+									<a href="javascript:;">商家工具&nbsp;&nbsp;</a>
+									<a href="javascript:;">商家规则</a>
+								</p>
+							</li>
+							<li>
+								<strong>帮助:</strong>
+								<p>
+									<a href="javascript:;">帮助中心&nbsp;&nbsp;</a>
+									<a href="javascript:;">问商友</a>
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<em>&#xe631;</em>
+						<a href="javascript:;">网站导航</a>
+						<i></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!----------------------------head  ---------------------------------->
+		<div class="head">
+			<!--logo-->
+			<div id="logo" class="logo fl">
+				<a href="../index.html">
+					<img src="../images/logo.jpg" alt="" />
+				</a>
+			</div>
+			<!--area-->
+			<div id="area" class="area fl">
+				<p>
+					<span class="areaActive" id="areaActive">郑州</span>
+					<i style="font-size:20px;">&#xe618;</i>
+				</p>
+				<!--城市列表-->
+				<div id="moreCity" class="moreCity">
+					<!--热门城市-->
+					<div id="hotCity" class="hotCity">
+						<strong>热门城市:</strong>
+						<p>
+							<span><a href="javascript:;">上海</a></span>
+							<span><a href="javascript:;">广州</a></span>
+							<span><a href="javascript:;">洛阳</a></span>
+							<span><a href="javascript:;">杭州</a></span>
+							<span><a href="javascript:;">广州</a></span>
+							<span><a href="javascript:;">天津</a></span>
+							<span><a href="javascript:;">苏州</a></span>
+							<span><a href="javascript:;">成都</a></span>
+							<span><a href="javascript:;">深圳</a></span>
+						</p>
+					</div>
+					<!--字母导航-->
+					<div id="letter" class="letter">
+						<ul id="letterCity" class="letterCity">
+							<li class="letterActive">ABCDE</li>
+							<li>FGHIJ</li>
+							<li>KLMNP</li>
+							<li>QRTW</li>
+							<li>XYZ</li>
+						</ul>
+						<div id="cityCont" class="cityCont">
+							<div id="letterA" class="">
+								<span class="">A</span>
+								<p class="">
+									<span><a href="javascript:;">阿贝</a></span>
+									<span><a href="javascript:;">安康</a></span>
+									<span><a href="javascript:;">安阳</a></span>
+									<span><a href="javascript:;">安庆</a></span>
+									<span><a href="javascript:;">阿贝</a></span>
+									<span><a href="javascript:;">安康</a></span>
+									<span><a href="javascript:;">安阳</a></span>
+									<span><a href="javascript:;">安庆</a></span>
+								</p>
+							</div>
+							<div id="letterB">
+								<span>B</span>
+								<p>
+									<span><a href="javascript:;">北京</a></span>
+									<span><a href="javascript:;">保定</a></span>
+									<span><a href="javascript:;">白山</a></span>
+									<span><a href="javascript:;">宝三</a></span>
+									<span><a href="javascript:;">阿贝</a></span>
+									<span><a href="javascript:;">安康</a></span>
+									<span><a href="javascript:;">安阳</a></span>
+									<span><a href="javascript:;">安庆</a></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--search-->
+			<div id="search" class="search fl">
+				<div id="searchCon" class="searchCon">
+					<input type="text" placeholder="搜索天猫超市商品" id="searchGood" class="searchGood fl"/>
+					<input type="button" value="搜&nbsp; 索" id="searchBtn" class="searchBtn fl"/>
+				</div>
+			</div>
+			<!--headRight-->
+			<div class="headRight fl">
+				<a href="javascript:;" class="fl"><i>1</i>一站式购齐</a>
+				<a href="javascript:;" class="fl"><i>88</i>满88包邮</a>
+				<a href="javascript:;" class="fl">
+					<img src="../images/gan.png" alt=""/>
+				</a>
+			</div>
+		</div>
+		<!------------------------------nav导航---------------------------->
+		<div class="nav-wrap">
+			<div id="nav" class="nav">
+				<!--商品分类-->
+				<div class="classify fl">
+					所有产品分类
+				</div>
+				<!--导航-->
+				<ul id="navCont" class="navCont fl">
+					<li><a href="javascript:;">首页</a></li>
+					<li><a href="javascript:;">量贩装</a></li>
+					<li><a href="javascript:;">生鲜区</a></li>
+					<li><a href="javascript:;">企业采购</a></li>
+					<li><a href="javascript:;">大家电</a></li>
+				</ul>
+				<!--我的福利-->
+				<div class="weal fl">
+					<a href="javascript:;" class="fl"><i>&#xe606;</i>我的福利</a>
+					<div class="price fl">
+						<i>&#xe605;</i>
+						<b id="num">0个</b>
+						<strong></strong>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!------------------------------single单个商品---------------------------->
+		<div class="single">
+			<!--牌子-->
+			<p class="single-top">
+				<a href="javascript:;">天猫超市</a>
+				&nbsp;
+				>
+				&nbsp;
+				<a href="javascript:;">77牌(台湾)</a>
+			</p>
+			<!--单个商品具体信息-->
+			<div class="single-bottom">
+				<script type="text/html" id="milk">
+					
+						<div class="loup-wrap fl">
+							<div class="loup-box" id="loup-box">
+								<!--放大的图片-->
+								<div class="large-box" id="large-box">
+									<img src="{{imgsrc}}" alt="" id="large-img" class="large-img">
+								</div>
+								<!--中等的图片-->
+								<div class="middle-box" id="middle-box">
+									<img src="{{imgsrc}}" alt="" id="middle-img" class="middle-img"/>
+									<!-- 鼠标滑动到上面的阴影 -->
+									<div id="shadow" class="shadow"></div>
+								</div>
+								<!--小图片-->
+								<ul class="small-box" id="small-box">
+									<li><img src="{{imgsrc}}" alt="" class="active"></li>
+									<li><img src="{{imgsrc}}" alt=""></li>
+									<li><img src="{{imgsrc}}" alt=""></li>
+									<li><img src="{{imgsrc}}" alt=""></li>
+									<li><img src="{{imgsrc}}" alt=""></li>
+								</ul>
+							</div>
+					
+							<p> 
+								<a href="javascript:;" class="fl" style="margin-left: 25px;"><i>1</i>&nbsp;分享</a>
+								<a href="javascript:;" class="fl" style="margin-left: 15px;"><i>2</i>&nbsp;收藏</a>
+								<a href="javascript:;" class="fr" style="margin-right:40px;"><i>3</i>&nbsp;举报</a>
+							</p>
+						</div>
+				
+				<!--商品详情-->
+				<div class="single-detail fl">
+					<h6>
+						{{title}}
+					</h6>
+					<p>{{subtit}}</p>
+					<div class="single-price">
+						<div class="sprice-top">
+							<span class="fl">
+								<i>12</i>
+								全天商品通用
+							</span>
+							<span class="fr">
+								去刮卷&nbsp;
+								<i>34</i>
+							</span>
+						</div>
+						<div class="sprice-bottom">
+							<span class="fl">价格</span>
+							<span class="fl">{{price}} </span>
+						</div>
+					</div>
+					<div class="yf">
+						<span class="sp1 fl">
+							运费
+						</span>
+						<div class="adress fl">
+							<p>湖北武汉 至郑州    满200包邮</p>
+							<p>
+								<i>1</i>&nbsp;
+								24:00前付款，承诺8.27号送达
+							</p>
+						</div>
+					</div>
+					<div class="weight">
+						<span class="sp1 fl">
+							重量
+						</span>
+						<div class="adress fl">
+							<p>0.192kg</p>
+						</div>
+					</div>
+					<ul class="xl">
+						<li>月销量 <i> 99963</i></li><span class="fl">|</span>
+						<li>累计评价<i> 39163</i></li><span class="fl">|</span>
+						<li>送天猫积分<i> 9</i></li>
+					</ul>
+					<div class="totalNum fl">
+						<span class="sp1 fl">
+							数量
+						</span>
+						<div class="singleNum fl">
+							<input type="text" value='1' id="nums"/>
+							<span class="jt">
+								<em class="add">&#xe6b0;</em>
+								<em class="plus">&#xe608;</em>
+							</span>
+							<span class="fl"> 件</span>
+						</div>
+						<div class="fl" style="margin-left:20px">
+							库存593件
+						</div>
+					</div>
+					<input type="button" value="加入购物车" class="singleBtn" data-id="{{id}}"/>
+					<div class="coverage">
+						<span class="sp1 fl">
+							送货范围
+						</span>
+						<div class="covercont">
+							仅限焦作、南阳、驻马店、洛阳、开封、三门峡、新乡、郑州、鹤壁、周口、安阳、漯河、商丘、濮阳、济源、许昌、信阳、平顶山地区(生鲜类别仅限部分地区)
+						</div>
+					</div>
+				</div>
+				<!--相关商品-->
+				<div class="aboutSingle fl">
+					<!--上半部分-->
+					<div class="aboutTop">
+						<em></em>
+						<span>大家都在买</span>
+					</div>
+					<!--商品展示-->
+					<div class="aboutgood">
+						{{each linkpics as item2}}
+							<dl>
+								<dt>
+									<img src="{{item2.imgsrc}}" alt="" />
+								</dt>
+								<dd>
+									<p>{{item2.price}}</p>
+									<p>{{item2.title}}</p>
+								</dd>
+							</dl>
+						{{/each}}
+					</div>
+				</div>
+			</script>
+			</div>
+			
+			<!------评论信息----------->
+			<div class="view">
+				<!--左侧信息-->
+				<ul class="view-left fl">
+					<li>
+						<img src="../images/single/02.jpg" alt="" />
+					</li>
+					<li>
+						<img src="../images/single/02.jpg" alt="" />
+					</li>
+					<li>
+						<img src="../images/single/02.jpg" alt="" />
+					</li>
+				</ul>
+				<!--选项卡-->
+				<div class="view-middle fl">
+					<!--选项卡上半部分-->
+					<ul class="viewMtop">
+						<li>商品详情<span></span></li>
+						<li>累计评价  <i style="color:#339ad7">391130</i><span></span></li>
+						<li>售后服务</li>
+					</ul>
+					<!--选项卡下半部分-->
+					<div class="viewcont">
+						<!--第一部分-->
+						<div class="slide-view" style="">
+							<!--轮播-->
+							<div class="spxq" id="spxq">
+								<ul class="img-list" id="img-list">
+									<li class="active"><img src="../images/view/01.jpg" alt="" /></li>
+									<li><img src="../images/view/02.jpg" alt="" /></li>
+									<li><img src="../images/view/03.jpg" alt="" /></li>
+									<li><img src="../images/view/04.jpg" alt="" /></li>
+									<li><img src="../images/view/05.jpg"  alt="" /></li>
+								</ul>
+								<div id="btn-list" class="btn-list">
+									<span class="active">1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+								</div>
+							</div>
+							<!--排列的图片-->
+							<div class="piclist">
+								<p><img src="../images/view/004.jpg" alt="" /></p>
+								<div class="piccont">
+									<dl>
+										<dt><img src="../images/view/06.jpg" alt="" /></dt>
+										<dd>
+											<p>好酸奶，不添加</p>
+											<p>蒙牛纯真常温牛奶</p>
+											<p><span>200g*24盒</span>  <span>立即抢购<span></p>
+										</dd>
+									</dl>
+									<dl>
+										<dt><img src="../images/view/06.jpg" alt="" /></dt>
+										<dd>
+											<p>好酸奶，不添加</p>
+											<p>蒙牛纯真常温牛奶</p>
+											<p><span>200g*24盒</span>  <span>立即抢购<span></p>
+										</dd>
+									</dl>
+									<dl>
+										<dt><img src="../images/view/06.jpg" alt="" /></dt>
+										<dd>
+											<p>好酸奶，不添加</p>
+											<p>蒙牛纯真常温牛奶</p>
+											<p><span>200g*24盒</span>  <span>立即抢购<span></p>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<!--商家介绍-->
+							<div class="shopdetail">
+								<img src="../images/view/09.jpg"/>
+								<img src="../images/view/10.jpg"/>
+								<img src="../images/view/11.jpg"/>
+								<img src="../images/view/12.jpg"/>
+								<img src="../images/view/11.jpg"/>
+							</div>
+							<!--警告-->
+							<div class="jg">
+								<img src="../images/view/14.png"/>
+							</div>
+						</div>
+					
+						<!--第二部分-->
+						<div class="views">
+							<div class="vconttop">
+								<div class="topleft fl">
+									<span>描述相符</span>
+									<span>4.9</span>
+									<i></i>
+								</div>
+								<div class="topright fl">
+									<em>很便宜（765）</em>
+									<em>快递不错（765）</em>
+									<em>口感好（765）</em>
+								</div>
+							</div>
+							<div class="topmiddle">
+								<div class="radio fl">
+									<input type="radio" />全部
+									<input type="radio" checked="checked"/>追评
+									<input type="radio" />图片
+								</div>
+								<div class="radio fr">
+									<input type="checkbox" checked="checked"/>有内容
+									<select name="按默认" class="xz">
+										<option value="">默认1</option>
+										<option value="">默认2</option>
+										<option value="">默认3</option>
+									</select>
+								</div>
+							</div>
+							<ul class="msg">
+								<li>
+									<div class="msgleft fl">
+										<p>
+											第一次在淘宝天猫里买东西，第一次买的牛奶，家里的奶喝完了，头一天买第二天就收到了真是神速啊，免去去超市往家拎的麻烦了，写下方便了，以后会继续在这里面买东西，还想着买生鲜一类，真是太方便了，今天收到牛奶就迫不及待的给宝宝烤了蛋糕，真的很方便了，
+											真好，方便！哈哈哈哈哈，并且都有优惠的，用了优惠卷，虽然没碰上做活动已经不错了
+										</p>
+										<span class="msp1"><img src="../images/view/08.jpg" alt="" /></span>
+										<span style="color:#ccc">8.21</span>
+									</div>
+									<div class="msgright fr">
+										d***0<i style="color:#ddd">（匿名）</i>
+									</div>
+								</li>
+									<li>
+									<div class="msgleft fl">
+										<p>
+											还有比我买来更便宜的吗？快来晒单，现在姐姐也在天猫超市买，我姐也说太便宜太划算了，呵呵呵，要剁手的节奏啊！根本停不下来，现在超市半个月去一次了，就买一点酸奶之类的，这里什么都有的买，还有福利一分钱，拿了两样，每个月都要
+											买10次，我妈说家里什么都不缺，哈哈哈
+										</p>
+										<span class="msp1"><img src="../images/view/08.jpg" alt="" /></span>
+										<span style="color:#ccc">8.25</span>
+									</div>
+									<div class="msgright fr">
+										wang***0<i style="color:#ddd">（匿名）</i>
+									</div>
+								</li>
+							</ul>
+						</div>
+						
+						<!--第三部分-->
+						<div class="service">
+						<!--上部分-->
+							<div class="servicetop">
+								<dl class="fl">
+									<dt>
+										<i></i>
+										<span>正品保证</span>
+									</dt>
+									<dd>
+										天猫超市出售均为正品，承诺提供“正品保障”服务。
+									</dd>
+								</dl>
+								<dl class="fl">
+									<dt>
+										<i class="sec"></i>
+										<span>正品保证</span>
+									</dt>
+									<dd>
+										天猫超市出售均为正品，承诺提供“正品保障”服务。
+									</dd>
+								</dl>
+								<dl class="fl">
+									<dt>
+										<i class="sec1"></i>
+										<span>正品保证</span>
+									</dt>
+									<dd>
+										天猫超市出售均为正品，承诺提供“正品保障”服务。
+									</dd>
+								</dl>
+							</div>
+						<!--下部分-->
+							<div class="servicecont">
+								<div class="service1">	
+									<p class="title"><i></i></p>
+									<div class="servicemsg">
+										<p>
+											1、天猫超市所有在售商品均可开具正规发票
+										</p>
+										<p>
+											2、天猫超市所有在售商品均保障正品
+										</p>
+									</div>
+								</div>
+								<div class="service2">	
+									<p class="title"><i class="i2"></i></p>
+									<div class="service2msg">
+										<img src="../images/view/16.jpg"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<!--view.js-->
+	<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+	<!--轮播图-->
+	<script src="../js/viewSilder.js" type="text/javascript" charset="utf-8"></script>
+	<!--公共的cart.js-->
+	<script src="../scripts/cart.js" type="text/javascript" charset="utf-8"></script>
+</html>

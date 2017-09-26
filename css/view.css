@@ -1,0 +1,580 @@
+/*============
+ * single单个商品
+ =============*/
+.single{
+	height:630px;
+}
+/*single-top*/
+.single-top{
+	line-height:30px;
+	padding-left: 100px;
+}
+.single-top a {
+	display: inline-block;
+	color:#C4C9CA;
+}
+
+/*single-bottom*/
+
+/*放大镜*/
+.loup-wrap {
+	height: 604px;
+	overflow: hidden;
+}
+.loup-box {
+    position: relative;
+    width: 380px;
+    background: #fff;
+    margin: 20px;
+    padding: 10px;
+}
+.large-box {
+	display: none;
+	position: absolute;
+    top: 0;
+    left: 420px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.large-img{
+	position:absolute;
+}
+.middle-box {
+	position:relative;
+}
+.middle-img{
+	width:100%;
+	border: 1px solid #ddd;	
+}
+.shadow {
+	position:absolute;    /*阴影部分要相对于middle-box进行定位的  */
+	left:-1000px;
+	top:0;
+	width:104px;
+	height:104px;
+	background:rgba(255,0,0,.4);
+	cursor:move;
+}
+.small-box {
+	margin-top: 30px;
+	overflow: hidden;
+}
+.small-box li {
+	float:left;
+}
+.small-box li img {
+	border:1px solid #fff;  /*应该为每个图片设置边框，先全部设置为隐藏*/
+	width: 60px;
+    height: 60px;
+    margin-right: 12px;
+}
+
+#small-box li .active {
+	border: 2px solid #000;
+}
+
+/*商品详情*/
+.single-detail {
+	width: 549px;
+	height:604px;
+	padding:20px;
+	border-right:1px solid #ddd;
+	box-sizing: border-box;
+	margin-bottom:18px;
+}
+.single-detail>h6  {
+	font-size: 18px;
+	font-weight: 600;
+}
+.single-detail>p{
+	font-size: 14px;
+	line-height: 30px;
+	color:red;
+}
+.single-price {
+	padding:15px 10px;
+	width: 508px;
+	height: 80px;
+	background:#f0efef;
+	box-sizing: border-box;
+}
+.sprice-top {
+	height:25px;
+	font-size: 12px;
+}
+.sprice-bottom {
+	line-height:30px;
+}
+.sprice-bottom>span:last-child {
+	margin-left:45px;
+	color:#ff0036;
+	font-size: 28px;
+}
+.yf {
+	height:42px;
+    margin-top: 10px;
+}
+.weight{
+	height:30px;
+}
+.sp1 {
+	margin-right:35px;
+	margin-left:10px;
+}
+/*ul下面的*/
+.xl {
+	height:36px;
+	line-height: 36px;
+	border-top:1px dashed #eee;
+	border-bottom:1px dashed #eee;
+}
+.xl li {
+	float:left;
+	height:36px;
+	padding:0 43px;
+}
+.xl li i {
+	color:#ff0036;
+}
+.totalNum {
+	width: 100%;
+	height:60px;
+	line-height:60px;
+}
+.totalNum span:first-child {
+	line-height:60px ;
+}
+
+.singleNum{
+	height:30px;
+	margin-top: 12px;
+	line-height: 30px;
+}
+.singleNum input {
+	float: left;
+	width:40px;
+	height:30px;
+	border:1px solid #a7a6ac;
+	text-indent: 5px;
+	margin-right: 10px;
+}
+.jt{
+	float: left;
+	font-family: 'iconfont';
+	display:inline-block;
+	width:20px;
+	height:35px;
+	cursor: pointer;
+}
+.jt em{
+	/*position:absolute;*/
+	float: left;
+	font-style:normal;
+	height:10px;
+	border:1px solid #ccc;
+	line-height:10px;/*注意要添加line-height,不然会出现错误*/
+}
+.jt em:first-child{
+	margin-top:2px;
+}
+.jt em:last-child{
+	margin-top:8px;
+}
+.singleBtn {
+	width:140px;
+	height:40px;
+	border:0;
+	background: #ff0036;
+	line-height: 40px;
+	color:#fff;
+	font-size: 16px;
+	margin-left: 68px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.coverage {
+	margin-top: 100px;
+	color:#ccc;
+}
+.covercont{
+	color:#886655;
+	line-height: 20px;
+	
+}
+/*右边的相关产品*/
+.aboutSingle {
+    overflow: hidden;
+}
+.aboutTop {
+	position: relative;
+    width: 200px;
+    height: 20px;
+}
+.aboutSingle em {
+	position:absolute;
+	width:144px;
+	border:1px dotted #ccc;
+    top: 10px;
+    left: 30px;
+}
+.aboutSingle span{
+    position: absolute;
+    padding: 0 5px;
+    background: #fff;
+    left: 70px;
+    top: 2px;
+}
+.aboutgood {
+	width:100%;
+	padding-left:10px;
+}
+.aboutgood dl{
+	margin-top: 20px;
+    text-align: center;
+}
+.aboutgood dt{
+    margin: 18px auto;
+    width: 110px;
+}
+
+/*============
+ * view评论
+ =============*/
+.view {
+	width: 100%;
+	min-height:300px;
+	height:auto!important;
+	height:auto;
+}
+.view-left {
+	margin-right:13px;
+}
+.view-left li {
+	width:190px;
+	height:170px;
+	margin-bottom: 15px;
+}
+/*-------选项卡部分-------*/
+.view-middle {
+	min-height:300px;
+	height:auto!important;
+	height:auto;
+}
+/*选项卡上半部分*/
+.viewMtop {
+	width:790px;
+	height:50px;
+	border:1px solid #ddd;
+}
+.viewMtop li {
+	float:left;
+	height:50px;
+	line-height: 50px;
+	padding:0 15px;
+	cursor:pointer;
+}
+.viewMtop span {
+	border-right: 1px dashed #eee;
+    height: 17px;
+    margin-top: 18px;
+    margin-left: 20px;
+}
+.active {
+	color:#ff0036;
+	border-right:1px solid #ddd;
+	border-left:1px solid #ddd;
+	border-top:1px solid #ff0036;
+}
+
+
+
+/*选项卡下半部分*/
+.viewcont {
+	position:relative;
+}
+.viewcont>div {
+	position:absolute;
+	background:#fff;
+}
+/*第一部分内容*/
+.slide-view {
+	z-index:1;
+	/*display: none;*/
+}
+/*向上的轮播图*/
+.spxq {
+	position:relative;
+	width:790px;
+	height:300px;
+}
+.spxq img{
+	width:790px;
+	height:300px;
+	vertical-align:bottom;
+}
+.img-list {
+	position: absolute;
+	z-index: 0;
+}
+.img-list li{
+	position:absolute;
+}
+.img-list .active {
+	opacity: 1;
+	z-index: 2;
+}
+.btn-list {
+	position: absolute;
+	left:70%;
+	bottom:10px;
+	/*margin-left:*/
+	padding: 0 4px;
+}
+.btn-list span {
+	line-height: 20px;
+    text-align: center;
+    display: block;
+    float: left;
+    margin: 4px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.btn-list .active {
+	background: #f00;
+	color:#fff;
+}
+.right-btn {
+	right: 0;
+}
+.piclist {
+	width:790px;
+	margin-top:15px;
+	background: #0964b5;
+}
+.piclist>p {
+	height:200px;
+}
+.piccont {
+	overflow: hidden;
+}
+.piccont>dl {
+	float:left;
+	width:240px;
+	height:340px;
+	margin:6px;
+	text-align: center;
+	background: red;
+}
+.piccont img {
+	width:240px;
+	height:235px;
+}
+.piccont dd p:first-child {
+	line-height:30px;
+	width:100%;
+	background: #ffde15;
+	text-align: center;
+	color:#ff0101;
+	font-size:18px;
+	font-weight: bold;
+}
+.piccont dd p:nth-child(2) {
+	color:#fff;
+	font-size:16px;
+	margin:10px 0;
+}
+
+.piccont dd p:nth-child(3) span:first-child {
+	float:left;
+	color:#FFF;
+    margin-left: 41px;
+}
+.piccont dd p:nth-child(3) span:last-child {
+	float:left;
+	line-height: 30px;
+	color:#ff0101;
+	background: #ffe417;
+	border-radius: 7px;
+	margin-top: -9px;
+    margin-left: 20px;
+}
+.shopdetail {
+	width: 790px;
+	background: green;
+}
+.jg {
+	margin-top: 10px;
+    width: 790px;
+}
+.jg img {
+	width: 790px;
+}
+
+/*=--------第二部分评论-----------=*/
+.views {
+	width:790px;
+	/*display: none;*/
+}
+.vconttop {
+	height: 59px;
+	border:1px solid #ccc;
+}
+.topleft {
+	width: 115px;
+    /*background: red;*/
+    text-align: center;
+    height: 60px;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+.topleft span {
+	display:block;
+}
+.topleft span:first-child{
+	font-size: 20px;
+    color: red;
+    border-right: 1px dashed #ccc;
+}
+.vconttop em{
+	font-style: normal;
+    display: inline-block;
+    padding: 4px;
+    border: 1px solid red;
+    border-radius: 5px;
+    box-shadow: 1px 2px 9px red;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.topright{
+    margin: 14px 20px;
+}
+.topmiddle {
+	width:790px;
+	height:35px;
+	line-height: 35px;
+	background: #efefef;
+	border:1px solid #D1D7DC;
+}
+.xz {
+   width: 70px;
+    margin-left: 10px;
+    height: 25px;
+}
+/*评论信息排版*/
+.msg {
+	width:100%;
+	min-height:300px;
+	height:auto!important;
+	height:auto;
+	overflow: hidden;
+	background: green;
+}
+.msg li {
+	padding: 20px;
+    border-bottom: 1px solid #ddd;
+    min-height: 150px;
+    height: auto!important;
+    height: auto;
+}
+.msgleft {
+	width:490px;
+}
+.msgleft p:first-child:after {
+	content:'......'
+}
+.msgleft .msp1 {
+	display: block;
+    color: #ddd;
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+    border: 2px solid #ccc;
+    margin:8px 0;
+}
+.msgright {
+    line-height: 140px;
+}
+/*-------第三部分----------*/
+.service {
+	/*display: none;*/
+	min-height:200px;
+	height:auto!important;
+	height: auto;
+	width:790px;
+}
+.servicetop {
+	width:100%;
+	height:130px;
+	border:1px solid #ccc;
+}
+.servicetop dl {
+	padding:30px 17px;
+	overflow: hidden;
+	border-right: 1px solid #ccc;
+}
+
+.servicetop dt i {
+	display:block;
+	width:30px;
+	height:26px;
+	background: url(../images/view/pic1.png) no-repeat left top;
+	margin-left: 21px;
+}
+.servicetop .sec {
+	background: url(../images/view/pic1.png) no-repeat -36px top;
+}
+.servicetop .sec1{
+	background: url(../images/view/pic1.png) no-repeat -72px top;
+}
+.servicetop  dt {
+	float:left;
+	width:69px;
+	height:68px;
+	border-right: 1px solid #ddd;
+	text-align: center;
+	padding-right:10px;
+}
+.servicetop dl dd {
+	float:left;
+	width:129px;
+	margin-left:18px;
+}
+.servicetop dl:last-of-type {
+	border-right:0;
+}
+.servicecont {
+	width:790px;
+	margin-top:15px;
+	min-height: 200px;
+	height:auto!important;
+	height:auto;
+	/*background: red;*/
+	padding:10px;
+}
+.service1 {
+	margin-bottom:30px;
+}
+.title {
+	border-bottom:1px solid #ccc;
+}
+.title i{
+	display: block;
+	width:195px;
+	height:30px;
+	background: url(../images/view/pic1.png) no-repeat -45px -32px;
+	margin:15px auto;
+}
+.servicemsg p {
+	line-height:25px;
+}
+
+.title .i2 {
+	background: url(../images/view/pic1.png) no-repeat -60px -70px;
+}
+.service2msg img{
+	margin:10px auto;
+}

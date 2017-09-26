@@ -7,6 +7,14 @@
 		<link rel="stylesheet" href="css/common.css" />
 		<!--首页的样式-->
 		<link rel="stylesheet" href="css/index.css" />
+		<!--jquery-->
+		<script src="scripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<!--模板js-->
+		<script src="scripts/template.js" type="text/javascript" charset="utf-8"></script>
+		<!--轮播图-->
+		<script src="js/sideshow.js" type="text/javascript" charset="utf-8"></script>
+		<!--引入jquery.cookie插件-->
+		<script src="scripts/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<!------------------------------------top  顶层-------------------------------->
@@ -17,16 +25,16 @@
 				<ul id="topLeft" class="topLeft">
 					<li>
 						<em>&#xe60f;&nbsp;</em>
-						<a href="javascript:;">天猫首页</a>
+						<a href="index.html">天猫首页</a>
 					</li>
 					<li>
-						喵，欢迎来天猫
+						喵，<span id="user" style="color:#e4593a"> </span>欢迎来天猫
 					</li>
 					<li>
-						<a href="javascript:;">请登录</a>
+						<a href="html/login.html">请登录</a>
 					</li>
 					<li>
-						<a href="javascript:;">免费注册</a>
+						<a href="html/register.html">免费注册</a>
 					</li>
 				</ul>
 				<!--top-right-->
@@ -46,7 +54,7 @@
 					</li>
 					<li>
 						<em style="font-size:18px;">&#xe605;</em>
-						<a href="javascript:;">购物车</a>
+						<a href="html/cart.html">购物车</a>
 					</li>
 					<li id="collect" class="collect commonList">
 						<a href="javascript:;">收藏夹</a>
@@ -112,9 +120,9 @@
 		<div class="head">
 			<!--logo-->
 			<div id="logo" class="logo fl">
-				<h2>
+				<a href="index.html">
 					<img src="images/logo.jpg" alt="" />
-				</h2>
+				</a>
 			</div>
 			<!--area-->
 			<div id="area" class="area fl">
@@ -196,26 +204,28 @@
 			</div>
 		</div>
 		<!------------------------------nav导航---------------------------->
-		<div id="nav" class="nav">
-			<!--商品分类-->
-			<div class="classify fl">
-				所有产品分类
-			</div>
-			<!--导航-->
-			<ul id="navCont" class="navCont fl">
-				<li><a href="javascript:;">首页</a></li>
-				<li><a href="javascript:;">量贩装</a></li>
-				<li><a href="javascript:;">生鲜区</a></li>
-				<li><a href="javascript:;">企业采购</a></li>
-				<li><a href="javascript:;">大家电</a></li>
-			</ul>
-			<!--我的福利-->
-			<div class="weal fl">
-				<a href="javascript:;" class="fl"><i>&#xe606;</i>我的福利</a>
-				<div class="price fl">
-					<i>&#xe605;</i>
-					<b>￥0.00元</b>
-					<strong></strong>
+		<div class="nav-wrap">
+			<div id="nav" class="nav">
+				<!--商品分类-->
+				<div class="classify fl">
+					所有产品分类
+				</div>
+				<!--导航-->
+				<ul id="navCont" class="navCont fl">
+					<li><a href="javascript:;">首页</a></li>
+					<li><a href="javascript:;">量贩装</a></li>
+					<li><a href="javascript:;">生鲜区</a></li>
+					<li><a href="javascript:;">企业采购</a></li>
+					<li><a href="javascript:;">大家电</a></li>
+				</ul>
+				<!--我的福利-->
+				<div class="weal fl">
+					<a href="javascript:;" class="fl"><i>&#xe606;</i>我的福利</a>
+					<div class="price fl">
+						<i>&#xe605;</i>
+						<b id="num">0</b>
+						<strong></strong>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -224,268 +234,63 @@
 			<!--mainLeft-->
 			<div id="main1" class="main1 fl">
 				<ul id="mainLeft" class="mainLeft">
-					<li>
-						<div class="liCont" style="border-top:0">
-							<i>&#xe623;</i>
-							<div class="food">
-								<p class="mainClassify">
-									<a href="javascript:;">进口食品</a>
-									<span>></span>
-								</p>
-								<p>
-									<a href="javascript:;">牛奶</a>
-									<a href="javascript:;">零食</a>
-									<a href="javascript:;">饼干</a>
-									<a href="javascript:;">方便面</a>
-									<a href="javascript:;">粮油</a>
-								</p>
+
+					<script id="foods" type="text/html">
+						{{each foods as item}}
+						<li>
+							<div class="liCont">
+								{{each item as value}}
+								<i>{{value.img}}</i>
+								<div class="food">
+									<p class="mainClassify">
+										<a href="{{value.link}}">{{value.title}}</a>
+										<span>></span>
+									</p>
+									<p>
+										{{each value.class as value1}}
+											<a href="{{value1.link}}">{{value1.title}}</a>
+										{{/each}}
+									</p>
+								</div>
+								{{/each}}
 							</div>
-						</div>
-					</li>
-					<li>
-						<div class="liCont">
-							<i>&#xe6a3;</i>
-							<div class="food">
-								<p class="mainClassify">
-									<a href="javascript:;">食品饮料</a>
-									<span>></span>
-								</p>
-								<p>
-									
-									<a href="javascript:;">牛奶</a>
-									<a href="javascript:;">零食</a>
-									<a href="javascript:;">饼干</a>
-									<a href="javascript:;">方便面</a>
-									<a href="javascript:;">粮油</a>
-								</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="liCont">
-							<i>&#xe89d;</i>
-							<div class="food">
-								<p class="mainClassify">
-									<a href="javascript:;">粮油副食</a>
-									<span>></span>
-								</p>
-								<p>
-									
-									<a href="javascript:;">牛奶</a>
-									<a href="javascript:;">零食</a>
-									<a href="javascript:;">饼干</a>
-									<a href="javascript:;">方便面</a>
-									<a href="javascript:;">粮油</a>
-								</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="liCont">
-							<i>&#xe623;</i>
-							<div class="food">
-								<p class="mainClassify">
-									<a href="javascript:;">美容洗护</a>
-									<span>></span>
-								</p>
-								<p>
-									
-									<a href="javascript:;">牛奶</a>
-									<a href="javascript:;">零食</a>
-									<a href="javascript:;">饼干</a>
-									<a href="javascript:;">方便面</a>
-									<a href="javascript:;">粮油</a>
-								</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="liCont">
-							<i>&#xe600;</i>
-							<div class="food">
-								<p class="mainClassify">
-									<a href="javascript:;">家居家电</a>
-									<span>></span>
-								</p>
-								<p>
-									<a href="javascript:;">牛奶</a>
-									<a href="javascript:;">零食</a>
-									<a href="javascript:;">饼干</a>
-									<a href="javascript:;">方便面</a>
-									<a href="javascript:;">粮油</a>
-								</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="liCont">
-							<i>&#xe89d;</i>
-							<div class="food">
-								<p class="mainClassify">
-									<a href="javascript:;">家庭清洁</a>
-									<span>></span>
-								</p>
-								<p>
-									
-									<a href="javascript:;">牛奶</a>
-									<a href="javascript:;">零食</a>
-									<a href="javascript:;">饼干</a>
-									<a href="javascript:;">方便面</a>
-									<a href="javascript:;">粮油</a>
-								</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="liCont">
-							<i>&#xe600;</i>
-							<div class="food">
-								<p class="mainClassify">
-									<a href="javascript:;">母婴用品</a>
-									<span>></span>
-								</p>
-								<p>
-									
-									<a href="javascript:;">牛奶</a>
-									<a href="javascript:;">零食</a>
-									<a href="javascript:;">饼干</a>
-									<a href="javascript:;">方便面</a>
-									<a href="javascript:;">粮油</a>
-								</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="liCont">
-							<i>&#xe675;</i>
-							<div class="food">
-								<p class="mainClassify">
-									<a href="javascript:;">生鲜水果</a>
-									<span>></span>
-								</p>
-								<p>
-									
-									<a href="javascript:;">牛奶</a>
-									<a href="javascript:;">零食</a>
-									<a href="javascript:;">饼干</a>
-									<a href="javascript:;">方便面</a>
-									<a href="javascript:;">粮油</a>
-								</p>
-							</div>
-						</div>
-					</li>
+						</li>
+						{{/each}}
+					</script>
+				
 				</ul>
 				<!--滑动的内容-->
 				<div id="leftCont" class="leftCont">
 					<!--左侧的分类-->
-					<div id="subview" class="subview">
-						<div class="subview-li">
-							<h4>进口牛奶</h4>
-							<p>
-								<a href="javascript:;">进口纯牛奶</a>
-								<a href="javascript:;">进口酸奶</a>
-								<a href="javascript:;">进口成人奶粉</a>
-								<a href="javascript:;">进口有机酸奶</a>
-								<a href="javascript:;">进口有机酸奶</a>
-							</p>
-						</div>
-						<div class="subview-li">
-							<h4>进口牛奶</h4>
-							<p>
-								<a href="javascript:;">进口纯牛奶</a>
-								<a href="javascript:;">进口酸奶</a>
-								<a href="javascript:;">进口成人奶粉</a>
-								<a href="javascript:;">进口有机酸奶</a>
-								<a href="javascript:;">进口有机酸奶</a>
-							</p>
-						</div>
-						<div class="subview-li">
-							<h4>进口牛奶</h4>
-							<p>
-								<a href="javascript:;">进口纯牛奶</a>
-								<a href="javascript:;">进口酸奶</a>
-								<a href="javascript:;">进口成人奶粉</a>
-								<a href="javascript:;">进口有机酸奶</a>
-								<a href="javascript:;">进口有机酸奶</a>
-							</p>
-						</div>
-						<div class="subview-li">
-							<h4>进口牛奶</h4>
-							<p>
-								<a href="javascript:;">进口纯牛奶</a>
-								<a href="javascript:;">进口酸奶</a>
-								<a href="javascript:;">进口成人奶粉</a>
-								<a href="javascript:;">进口有机酸奶</a>
-								<a href="javascript:;">进口有机酸奶</a>
-							</p>
-						</div>
-						<div class="subview-li">
-							<h4>进口牛奶</h4>
-							<p>
-								<a href="javascript:;">进口纯牛奶</a>
-								<a href="javascript:;">进口酸奶</a>
-								<a href="javascript:;">进口成人奶粉</a>
-								<a href="javascript:;">进口有机酸奶</a>
-								<a href="javascript:;">进口有机酸奶</a>
-							</p>
-						</div>
-						<div class="subview-li">
-							<h4>进口牛奶</h4>
-							<p>
-								<a href="javascript:;">进口纯牛奶</a>
-								<a href="javascript:;">进口酸奶</a>
-								<a href="javascript:;">进口成人奶粉</a>
-								<a href="javascript:;">进口有机酸奶</a>
-								<a href="javascript:;">进口有机酸奶</a>
-							</p>
-						</div>
-						<div class="subview-li">
-							<h4>进口牛奶</h4>
-							<p>
-								<a href="javascript:;">进口纯牛奶</a>
-								<a href="javascript:;">进口酸奶</a>
-								<a href="javascript:;">进口成人奶粉</a>
-								<a href="javascript:;">进口有机酸奶</a>
-								<a href="javascript:;">进口有机酸奶</a>
-							</p>
-						</div>
-						<div class="subview-li">
-							<h4>进口牛奶</h4>
-							<p>
-								<a href="javascript:;">进口纯牛奶</a>
-								<a href="javascript:;">进口酸奶</a>
-								<a href="javascript:;">进口成人奶粉</a>
-								<a href="javascript:;">进口有机酸奶</a>
-								<a href="javascript:;">进口有机酸奶</a>
-							</p>
-						</div>
-						<div class="subview-li">
-							<h4>进口牛奶</h4>
-							<p>
-								<a href="javascript:;">进口纯牛奶</a>
-								<a href="javascript:;">进口酸奶</a>
-								<a href="javascript:;">进口成人奶粉</a>
-								<a href="javascript:;">进口有机酸奶</a>
-								<a href="javascript:;">进口有机酸奶</a>
-							</p>
-						</div>
-						<div class="subview-promoto">
-							<div id="promoto1" class="promoto1">
-								<h4>进口牛奶1</h4>
-								<p>
-									<a href="javascript:;">进口纯牛奶</a>
-									<a href="javascript:;">进口酸奶</a>
-									<a href="javascript:;">进口</a>
-								</p>
+					<div id="subview1" class="subview">
+						
+						<script id="subview" type="text/html">
+							{{each subview as item}}
+								<div class="subview-li">
+									<h4>{{item.title}}</h4>
+									<p>
+										{{each item.subList as item1}}
+											<a href="javascript:;">{{item1}}</a>
+										{{/each}}
+									</p>
+								</div>
+							{{/each}}
+						
+				
+							<div class="subview-promoto">
+								{{each promoto as pro}}
+									<div id="promoto2" class="promoto1">
+										<h4>{{pro.title}}</h4>
+										<p>
+											{{each pro.subList as subpro}}
+												<a href="javascript:;">{{subpro}}</a>
+											{{/each}}
+										</p>
+									</div>
+								{{/each}}
+				
 							</div>
-							<div id="promoto2" class="promoto2">
-								<h4>进口牛奶2</h4>
-								<p>
-									<a href="javascript:;">进口纯牛奶</a>
-									<a href="javascript:;">进口酸奶</a>
-								</p>
-							</div>
-						</div>
+						</script>
 					</div>
 				</div>
 			</div>
@@ -505,23 +310,35 @@
 						<span class="active">1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
 					</div>
 					<div id="direction-btn" class="direction-btn">
-						<a href="javascript:;" id="left-btn"></a>
-						<a href="javascript:;" id="right-btn"></a>
+						<a href="javascript:;" id="left-btn" class="left-btn""><</a>
+						<a href="javascript:;" id="right-btn" class="right-btn"">></a>
 					</div>
 				</div>
 				<!--图片放大放小-->
 				<div id="blowpic" class="blowpic">
 					<!--第一行-->
 					<div class="row1">
-						<a href="javascript:;"><img src="images/01.jpg" alt="" /></a>
-						<a href="javascript:;"><img src="images/02.jpg" alt="" /></a>
-						<a href="javascript:;"><img src="images/02.jpg" alt="" /></a>
+							<a href="javascript:;">
+								<img src="images/01.jpg" alt="" />
+							</a>	
+							<a href="javascript:;">
+								<img src="images/02.jpg" alt="" />
+							</a>
+							<a href="javascript:;">
+								<img src="images/02.jpg" alt="" />
+							</a>
 					</div>
 					<!--第二行-->
 					<div class="row2">
-						<a href="javascript:;"><img src="images/04.jpg" alt="" /></a>
-						<a href="javascript:;"><img src="images/05.jpg" alt="" /></a>
-						<a href="javascript:;"><img src="images/06.jpg" alt="" /></a>
+						<a href="javascript:;">
+							<img src="images/04.jpg" alt="" />
+						</a>
+						<a href="javascript:;">
+							<img src="images/05.jpg" alt="" />
+						</a>
+						<a href="javascript:;">
+							<img src="images/06.jpg" alt="" />
+						</a>
 					</div>
 				</div>
 			</div>
@@ -535,7 +352,9 @@
 					</p>
 					<div class="well1">
 						<i></i>
-						<p>亲，请<a href="">登录</a></p>
+						<p>亲，请
+						 <a href="html/login.html" style="text-decoration: underline;color:red"> 登录 </a>
+						</p>
 					</div>
 					<div class="well2">
 						<a href="javascript:;">
@@ -565,358 +384,73 @@
 		</div>
 		<!-------------------------section---------------------------->
 		<div id="section" class="section">
-			<!--cont1-->
-			<div class="cont1">
-				<!--.cont1-top-->
-				<div class="cont1-top">
-					<h3 class="fl">生鲜水果</h3>
-					<ul class="fruit fr">
-						<li><a href="javascript:;">荔枝</a></li>
-						<li><a href="javascript:;">手抓饼</a></li>
-						<li><a href="javascript:;">虾</a></li>
-						<li><a href="javascript:;">牛肉</a></li>
-					</ul>
-				</div>
-				<!--.cont1-bottom-->
-				<div class="cont1-bottom">
-					<!--左边-->
-					<div class="cbLeft fl">
-						<div class="sxsg">
-							<a href="javascript:;">木瓜</a>
-							<a href="javascript:;">牛排</a>
-							<a href="javascript:;">苹果</a>
-							<a href="javascript:;">鱼</a>
-							<a href="javascript:;">柠檬</a>
-							<a href="javascript:;">柠檬</a>
-							<a href="javascript:;">柠檬</a>
-							<a href="javascript:;">柠檬</a>
-							<a href="javascript:;">柠檬</a>
+			<!--模板内容1-->
+			<script id="fruits" type="text/html">
+				{{each sxsg as list1}}
+				<div class="cont1">
+					<!--.cont1-top-->
+					<div class="cont1-top">
+						<h3 class="fl">{{list1.title}}</h3>
+						<ul class="fruit fr">
+							{{each list1.classify as listClass}}
+								<li><a href="javascript:;">{{listClass.title}}</a></li>
+							{{/each}}
+						</ul>
+					</div>
+					<!--.cont1-bottom-->
+					<div class="cont1-bottom">
+						<!--左边-->
+						<div class="cbLeft fl">
+							<div class="sxsg">
+								{{each list1.moreClass as listMore}}
+									<a href="javascript:;">{{listMore.title}}</a>
+								{{/each}}
+							</div>
+							<!--活动-->
+							<a href="javascript:;" class="part">
+								<img src="images/08.jpg" alt="" />
+							</a>
 						</div>
-						<!--活动-->
-						<a href="javascript:;" class="part">
-							<img src="images/08.jpg" alt="" />
-						</a>
-					</div>
-					<!--中间-->
-					<div class="cbcont fl">
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-					</div>
-					<!--右边-->
-					<div class="cbRight fl">
-						<!--优惠-->
-						<img src="images/12.png" alt="" class="cheap"/>
-					    <a href="javascript:;" class="cbRighta">
-							<img src="images/10.jpg" alt="" />
-						</a>
-						<a href="javascript:;">
-							<img src="images/11.jpg" alt="" />
-						</a>
-					</div>
-				</div>
-			</div>
-			<!--cont2-->
-			<div class="cont1">
-				<!--.cont2-top-->
-				<div class="cont1-top">
-					<h3 class="fl">油品调味</h3>
-					<ul class="fruit fr">
-						<li><a href="javascript:;">荔枝</a></li>
-						<li><a href="javascript:;">手抓饼</a></li>
-						<li><a href="javascript:;">虾</a></li>
-						<li><a href="javascript:;">牛肉</a></li>
-					</ul>
-				</div>
-				<!--.cont2-bottom-->
-				<div class="cont1-bottom">
-					<!--左边-->
-					<div class="cbLeft fl">
-						<div class="sxsg">
-							<a href="javascript:;">木瓜</a>
-							<a href="javascript:;">牛排</a>
-							<a href="javascript:;">苹果</a>
-							<a href="javascript:;">鱼</a>
-							<a href="javascript:;">柠檬</a>
-							<a href="javascript:;">柠檬</a>
-							<a href="javascript:;">柠檬</a>
-							<a href="javascript:;">柠檬</a>
-							<a href="javascript:;">柠檬</a>
+						<!--中间-->
+						<div class="cbcont fl">
+							{{each list1.morecont as listcon}}
+								<a href="{{listcon.link}}">
+									<dl>
+										<dt>
+											<img src="{{listcon.imgsrc}}" alt="" />
+										</dt>
+										<dd>
+											<p class="cbTitle">
+												{{listcon.title}}
+											</p>
+											<p class="cbprice">
+												<span class="fl">￥<i>{{listcon.price}}</i></span>
+												<strong class="fr">&#xe61b;</strong>
+											</p>
+										</dd>
+									</dl>
+								</a>
+							{{/each}}
 						</div>
-						<!--活动-->
-						<a href="javascript:;" class="part">
-							<img src="images/08.jpg" alt="" />
-						</a>
-					</div>
-					<!--中间-->
-					<div class="cbcont fl">
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-						<a href="javascript:;">
-							<dl>
-								<dt>
-									<img src="images/09.jpg" alt="" />
-								</dt>
-								<dd>
-									<p class="cbTitle">
-										食用油调和油 5L食用油价钱
-									</p>
-									<p class="cbprice">
-										<span class="fl">￥<i>39.9</i></span>
-										<strong class="fr">&#xe61b;</strong>
-									</p>
-								</dd>
-							</dl>
-						</a>
-					</div>
-					<!--右边-->
-					<div class="cbRight fl">
-						<!--优惠-->
-						<img src="images/12.png" alt="" class="cheap"/>
-					    <a href="javascript:;" class="cbRighta">
-							<img src="images/10.jpg" alt="" />
-						</a>
-						<a href="javascript:;">
-							<img src="images/11.jpg" alt="" />
-						</a>
+						<!--右边-->
+						<div class="cbRight fl">
+							<!--优惠-->
+							{{each list1.rightpics as pics}}
+							<img src="{{pics.img}}" alt="" class="cheap"/>
+								<div class="picright">
+						   		{{each pics.pic as pic i}}
+									   	<a href="javascript:;" class="cbRighta">
+											<img src="{{pic.imgsrc}}" alt="" />
+										</a>
+								{{/each}}
+								</div>
+							{{/each}}
+						</div>
 					</div>
 				</div>
-			</div>
+			{{/each}}
+			</script>
+				
 		</div>
 		<!-------------------------shadow---------------------------->
 		<div class="shadow"></div>
@@ -981,7 +515,8 @@
 		</div>
 		<!--左侧楼梯-->
 		<div class="floor">
-			<ul>
+			<ul class="">
+				<li class="active"><a href="javascript:;">生鲜水果  ></a></li>
 				<li><a href="javascript:;">生鲜水果  ></a></li>
 				<li><a href="javascript:;">生鲜水果  ></a></li>
 				<li><a href="javascript:;">生鲜水果  ></a></li>
@@ -995,8 +530,7 @@
 				<li><a href="javascript:;">生鲜水果  ></a></li>
 				<li><a href="javascript:;">生鲜水果  ></a></li>
 				<li><a href="javascript:;">生鲜水果  ></a></li>
-				<li><a href="javascript:;">生鲜水果  ></a></li>
-				<li><a href="javascript:;">生鲜水果  ></a></li>
+		<!--		<li><a href="javascript:;">生鲜水果  ></a></li>
 				<li><a href="javascript:;">生鲜水果  ></a></li>
 				<li><a href="javascript:;">生鲜水果  ></a></li>
 				<li><a href="javascript:;">生鲜水果  ></a></li>
@@ -1004,8 +538,51 @@
 				<li><a href="javascript:;">生鲜水果  ></a></li>
 				<li><a href="javascript:;">生鲜水果  ></a></li>
 				<li class="floorpic"><a href="javascript:;" style="height: 80px;"><img src="images/13.jpg" alt="" /></a></li>
-				<li><a href="javascript:;">生鲜水果  ></a></li>
+				<li><a href="javascript:;">生鲜水果  ></a></li>-->
+			</ul>
+		</div>
+		<!--右边侧边栏-->
+		<div class="rightSide">	
+			<ul class="rightSide">
+				<li>
+					<i>&#xe613;</i>
+					<span>
+						<strong></strong>
+						会员权益
+					</span>
+				</li>
+				<li>
+					<i>&#xe645;</i>
+					<span>
+						<strong></strong>
+						我的资产
+					</span>
+				</li>
+				<li>
+					<i>&#xe62f;</i>
+					<span><strong></strong>关注的店铺</span>
+				</li>
+				<li>
+					<i>&#xe619;</i>
+					<span><strong></strong>我的收藏</span>
+				</li>
+				<li>
+					<i>&#xe6e2;</i>
+					<span><strong></strong>我看到的</span>
+				</li>
 			</ul>
 		</div>
 	</body>
+	<!--引入index.js-->
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<!--引入cart.js-->
+	<script src="scripts/cart.js" type="text/javascript" charset="utf-8"></script>
+	<!--获取登录的用户-->
+	<script type="text/javascript">
+			window.onload = function(){
+				var user  = window.location.search.slice(1); //?wjy
+				var oUser = document.getElementById('user');
+				oUser.innerHTML = user;
+			}
+    </script>
 </html>

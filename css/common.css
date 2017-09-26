@@ -409,6 +409,7 @@ i {font-style: normal;}
 	color:#fcff00;
 	font-weight: 600;
 	font-size: 16px;
+  margin-left: 75px;
 }
 .price strong {
 	float: right;

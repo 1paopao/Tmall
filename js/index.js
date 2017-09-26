@@ -27,19 +27,17 @@ function showFruits() {
 
 /*==============页面滚动===============*/
 var flag   = true;
-
 $(document).scroll(function(){
 	//设置为全局，供页面功能使用
 	iScrH = $(this).scrollTop();
 	//导航定位
 	showMenu();
-	
+	//显示楼梯
 	floor();
 });
 
-function floor() {
 /*==========楼梯==============*/
-	
+function floor() {
 	//当滚动的高度大于550的时候，左侧楼梯显示
 	if(flag){
 		if(iScrH > 550) {
@@ -50,7 +48,6 @@ function floor() {
 	}
 	
 	//遍历内容块
-//	console.log(flag);
 	if(flag){
 		$('.section .cont1').each(function(){
 		if($(this).offset().top + $(this).height() >= iScrH) {
@@ -59,7 +56,7 @@ function floor() {
 			return false;
 		}
 	});
-	}
+}
 	
 	//鼠标点击楼梯的每个元素
 	$('.floor li').off("click").click(function(){
@@ -110,9 +107,14 @@ function showMenu(){
 				'border-bottom':'none'
 				}
 			);
+			
 			$('.nav').css({
 				'border-bottom':'2px solid #2f2f2f'
 			});
+			
+			$('.bannerCont').css({
+				'z-index':'3'
+			})
 		}
 	}
 	
@@ -143,7 +145,7 @@ function showMenu(){
 				'width':'240px',
 				'position':'relative',
 				'top':'0px',
-				'z-index':'0'
+				'z-index':'2'
 			});
 		}
 	}
@@ -168,7 +170,17 @@ function showLeftCont() {
 	$('#mainLeft').on('mouseenter','li',function(){
 		//二级菜单显示
 		$('#leftCont').fadeIn();
+		
+		//鼠标滑到li下面的a的时候显示下划线
+		$('#leftCont').on('mouseenter','a',function(){
+			//滑动到每个a上面的时候改变样式
+			$(this).css({'color':'red','text-decoration':'underline'})
+			.siblings().css({'color':'#000','text-decoration':'none'});
+		});
+		
+		//获取索引
 		var index = $(this).index();
+		//获取JSON数据
 		$.get('data/listClassify.json',function(data) {
 			//创建模板
 			var html1 = template('subview',data[index]);

@@ -412,6 +412,10 @@ h4 {
 	padding:20px 19px 13px 20px;
 	border-right:1px solid #ccc;
 }
+.cbcont > a > dl > dt > img {
+	width:160px;
+	height:160px;
+}
 .cbTitle {
 	width:160px;
 	margin:30px 0 10px 0;

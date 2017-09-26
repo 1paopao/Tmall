@@ -4,12 +4,12 @@
 					{
 						"title":"进口食品",
 						"img":"&#xe623;",
-						"link":"#",
+						"link":"html/list.html",
 						"class":
 							[
 								{
 									"title":"牛奶",
-									"link":"#"
+									"link":"html/list.html"
 								},
 								{
 									"title":"坚果",

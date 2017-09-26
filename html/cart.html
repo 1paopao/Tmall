@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车页面</title>
+		<!--公共的样式-->
+		<link rel="stylesheet" href="../css/common.css" />
+		<!--cart.css-->
+		<link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+		<!--jquery-->
+		<script src="../scripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<!--模板js-->
+		<script src="../scripts/template.js" type="text/javascript" charset="utf-8"></script>
+			<!--jquery cookie插件-->
+		<script src="../scripts/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!--goodcart.js-->
+		<script src="../js/goodcart.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!------------------------------------top  顶层-------------------------------->
+		<div id="topWrap" class="topWrap">
+			<!--top 内容-->
+			<div id="top" class="top">
+				<!--top-left-->
+				<ul id="topLeft" class="topLeft">
+					<li>
+						<em>&#xe60f;&nbsp;</em>
+						<a href="../index.html">天猫首页</a>
+					</li>
+					<li>
+						喵，<span id="user" style="color:#e4593a"> </span>欢迎来天猫
+					</li>
+					<li>
+						<a href="login.html">请登录</a>
+					</li>
+					<li>
+						<a href="register.html">免费注册</a>
+					</li>
+				</ul>
+				<!--top-right-->
+				<ul id="topRight" class="topRight">
+					<li id="myTao" class="myTao commonList">
+						<a href="javascript:;">我的淘宝</a>
+						<i></i>
+						<!--二级菜单  我的淘宝-->
+						<ul id="subTao" class="subTao commonSub">
+							<li><a href="javascript:;">已买到的宝贝</a></li>
+							<li><a href="javascript:;">已卖出的宝贝</a></li>
+						</ul>
+					</li>
+					<li>
+						<em style="font-size:18px;">&#xe607;</em>
+						<a href="javascript:;">我关注的品牌</a>
+					</li>
+					<li>
+						<em style="font-size:18px;">&#xe605;</em>
+						<a href="cart.html">购物车</a>
+					</li>
+					<li id="collect" class="collect commonList">
+						<a href="javascript:;">收藏夹</a>
+						<i></i>
+						<!--二级菜单  收藏夹-->
+						<ul id="subCollect" class="subCollect commonSub">
+							<li><a href="javascript:;">收藏的宝贝</a></li>
+							<li><a href="javascript:;">收藏的店铺</a></li>
+						</ul>
+					</li>
+					<li>|</li>
+					<li id="phone" class="phone">
+						<em style="font-size:18px;">&#xe602;</em>
+						<a href="javascript:;">手机版</a>
+						
+						<div id="subPhone" class="subPhone">
+							<span></span>
+							<p class="ewm"></p>
+							<p></p>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;">淘宝网</a>
+					</li>
+					<li id="merchant" class="merchant commonList">
+						<a href="javascript:;">商家支持</a>
+						<i></i>
+						<ul id="subChant" class="subChant commonSub">
+							<li>
+								<strong>商家:</strong>
+								<p>
+									<a href="javascript:;">商家中心&nbsp;&nbsp;</a>
+									<a href="javascript:;">商家注入</a>
+								</p>
+								<p>
+									<a href="javascript:;">运营服务&nbsp;&nbsp;</a>
+									<a href="javascript:;">商家品控</a>
+								</p>
+								<p>
+									<a href="javascript:;">商家工具&nbsp;&nbsp;</a>
+									<a href="javascript:;">商家规则</a>
+								</p>
+							</li>
+							<li>
+								<strong>帮助:</strong>
+								<p>
+									<a href="javascript:;">帮助中心&nbsp;&nbsp;</a>
+									<a href="javascript:;">问商友</a>
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<em>&#xe631;</em>
+						<a href="javascript:;">网站导航</a>
+						<i></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!----------------------------head  ---------------------------------->
+		<div class="head">
+			<!--logo-->
+			<div id="logo" class="logo fl">
+				<a href="../index.html">
+					<img src="../images/logo.jpg" alt="" />
+				</a>
+			</div>
+			<!--area-->
+			<div id="area" class="area fl">
+				<p>
+					<span class="areaActive" id="areaActive">郑州</span>
+					<i style="font-size:20px;">&#xe618;</i>
+				</p>
+				<!--城市列表-->
+				<div id="moreCity" class="moreCity">
+					<!--热门城市-->
+					<div id="hotCity" class="hotCity">
+						<strong>热门城市:</strong>
+						<p>
+							<span><a href="javascript:;">上海</a></span>
+							<span><a href="javascript:;">广州</a></span>
+							<span><a href="javascript:;">洛阳</a></span>
+							<span><a href="javascript:;">杭州</a></span>
+							<span><a href="javascript:;">广州</a></span>
+							<span><a href="javascript:;">天津</a></span>
+							<span><a href="javascript:;">苏州</a></span>
+							<span><a href="javascript:;">成都</a></span>
+							<span><a href="javascript:;">深圳</a></span>
+						</p>
+					</div>
+					<!--字母导航-->
+					<div id="letter" class="letter">
+						<ul id="letterCity" class="letterCity">
+							<li class="letterActive">ABCDE</li>
+							<li>FGHIJ</li>
+							<li>KLMNP</li>
+							<li>QRTW</li>
+							<li>XYZ</li>
+						</ul>
+						<div id="cityCont" class="cityCont">
+							<div id="letterA" class="">
+								<span class="">A</span>
+								<p class="">
+									<span><a href="javascript:;">阿贝</a></span>
+									<span><a href="javascript:;">安康</a></span>
+									<span><a href="javascript:;">安阳</a></span>
+									<span><a href="javascript:;">安庆</a></span>
+									<span><a href="javascript:;">阿贝</a></span>
+									<span><a href="javascript:;">安康</a></span>
+									<span><a href="javascript:;">安阳</a></span>
+									<span><a href="javascript:;">安庆</a></span>
+								</p>
+							</div>
+							<div id="letterB">
+								<span>B</span>
+								<p>
+									<span><a href="javascript:;">北京</a></span>
+									<span><a href="javascript:;">保定</a></span>
+									<span><a href="javascript:;">白山</a></span>
+									<span><a href="javascript:;">宝三</a></span>
+									<span><a href="javascript:;">阿贝</a></span>
+									<span><a href="javascript:;">安康</a></span>
+									<span><a href="javascript:;">安阳</a></span>
+									<span><a href="javascript:;">安庆</a></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--search-->
+			<div id="search" class="search fl">
+				<div id="searchCon" class="searchCon">
+					<input type="text" placeholder="搜索天猫超市商品" id="searchGood" class="searchGood fl"/>
+					<input type="button" value="搜&nbsp; 索" id="searchBtn" class="searchBtn fl"/>
+				</div>
+			</div>
+			<!--headRight-->
+			<div class="headRight fl">
+				<a href="javascript:;" class="fl"><i>1</i>一站式购齐</a>
+				<a href="javascript:;" class="fl"><i>88</i>满88包邮</a>
+				<a href="javascript:;" class="fl">
+					<img src="../images/gan.png" alt=""/>
+				</a>
+			</div>
+		</div>
+		<!----------------------------cart nav  ---------------------------------->
+		<div class="cartnav">
+			<!--上半部分-->
+			<div class="cartop">
+				<ul class="cartlist">
+					<li>全部商品 <i>0</i></li>
+					<li>降价商品 <i>0</i></li>
+					<li>库存紧张 <i>0</i></li>
+				</ul>
+			</div>
+			<!--下半部分-->
+			<div class="selectAll">
+				<span>
+					<input type="checkbox" name="selectAll"  class="allSel"/>全选
+				</span>
+				<span>商品信息</span>
+				<span>单价</span>
+				<span>数量</span>
+				<span>金额</span>
+				<span>操作</span>
+			</div>
+			
+			<div class="main-cart">
+				<div class="cartgoods1">
+					<script type="text/html" id="milk1">
+						<div class="cartgoods" data-id={{id}}>
+						<div class="good-top">
+							<a>{{active}}</a>
+						</div>
+						<!--主要传来的信息-->
+						<div class="goodmsg">
+							<div class="selectsingle fl">
+								<input type="checkbox" name="" id="" value="" class="singSel"/>
+							</div>
+							<div id="" class="goodpic fl">
+								<img src="{{imgsrc}}" alt="" />
+							</div>
+							<div class="carttitle fl">
+								<span id="">
+									{{title}}
+								</span>
+							</div>
+							<div class="cartprice fl">
+								￥ <span>{{price}}</span>
+							</div>
+							<div class="goodnum fl" id="{{id}}">
+								<span class="prev">-</span>
+								<input type="text" value="2" class="nums"/>
+								<span class="next">+</span>
+							</div>
+							<div class="rowprice fl">
+								￥  <span>33.80</span>
+							</div>
+							<div class="operation fl">
+								<a href="" class="del">删除</a>
+							</div>
+						</div>
+						</div>
+					</script>
+				</div>
+				<!--全选按钮-->
+				<div class="good-bottom">
+						<div class="all1 fl">
+							<input type="checkbox" class="allSel"/>
+							全选
+						</div>
+						<div class="alloper fl">
+							<a href="#">删除</a>
+							<a href="#">移入文件夹</a>
+							<a href="#">分享</a>
+						</div>
+						<div class="allright fr">
+							<div class="num fl">
+								已选商品<span style="color:red;font-weight: 600;">2</span>件
+							</div>
+							<div class="alltotal fl">
+								合计（不计邮费）：￥
+								<span> 103.70</span>
+							</div>
+							<button class="totalcart fl">结 算</button>
+						</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-------------------------footer---------------------------->
+		<div class="footer-wrap">		
+		    <div class="footer">	
+				<a href="javascript:;" class="fl">
+					<img src="../images/tm.png" alt="" />
+				</a>
+				<ul class="list1 fl">
+					<li  class="foot-fir"><a href="javascript">购物指南</a></li>
+					<li><a href="javascript">购物流程</a></li>
+					<li><a href="javascript">配送时效说明</a></li>
+					<li><a href="javascript">购买生鲜须知</a></li>
+					<li><a href="javascript">发票流程</a></li>
+				</ul>
+				<ul class="list2 fl">
+					<li  class="foot-fir"><a href="javascript">发票流程</a></li>
+					<li><a href="javascript">发票流程</a></li>
+					<li><a href="javascript">发票流程</a></li>
+					<li><a href="javascript">发票流程</a></li>
+				</ul>
+				<ul class="list3 fl">
+					<li  class="foot-fir"><a href="javascript">发票流程</a></li>
+					<li><a href="javascript">发票流程</a></li>
+					<li><a href="javascript">发票流程</a></li>
+					<li><a href="javascript">发票流程</a></li>
+				</ul>
+				<ul class="list4 fl">
+					<li  class="foot-fir"><a href="javascript">发票流程</a></li>
+					<li><a href="javascript">发票流程</a></li>
+					<li><a href="javascript">发票流程</a></li>
+					<li><a href="javascript">发票流程</a></li>
+				</ul>
+				<ul class="list5 fl">
+					<li  class="foot-fir"><a href="javascript">随时变</a></li>
+					<li>
+						<img src="../images/ewm1.png" alt="" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-------------------------bottom---------------------------->
+		<div class="bottom-wrap">
+			<div class="bottom">
+				<p>
+					 关于天猫  帮助中心  开放平台  诚聘英才  联系我们  网站合作  法律声明及隐私权政策  知识产权  廉正举报
+				</p>
+				<p>
+					 阿里巴巴集团  | 淘宝网  | 天猫 | 聚划算 | 全球速卖通 | 阿里巴巴国际交易市场 | 1688 | 阿里妈妈 | 飞猪 | 阿里云计算 | YunOS | 阿里通信 | 万网 | 高德 | UC | 友盟 | 虾米 | 阿里星球 | 来往 | 钉钉 | 支付宝
+				</p>
+				<p class="botP">
+					增值电信业务经营许可证： 浙B2-20110446 网络文化经营许可证：浙网文[2015]0295-065号 12318举报 
+				</p>
+				<p class="botP"> 
+					互联网药品信息服务资质证书编号：浙-（经营性）-2017-0005   浙公网安备 33010002000120号
+				</p>
+				<p class="botP">
+					© 2003-2017 TMALL.COM 版权所有
+				</p>
+			</div>
+		</div>
+	</body>
+	<!--引入封装的cookie-->
+	<script src="../scripts/cart.js" type="text/javascript" charset="utf-8"></script>
+</html>

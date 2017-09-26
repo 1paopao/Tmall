@@ -1,0 +1,163 @@
+/*cartnav*/
+.cartnav {
+	min-height:400px;
+	height:auto!important;
+	height:auto;
+	margin-bottom: 200px;
+}
+.cartop {
+	overflow: hidden;
+}
+.cartlist{
+	height: 41px;
+	overflow: hidden;
+	border-bottom: 2px solid #e6e6e6;
+}
+.cartlist li {
+	float:left;
+	padding:0 24px;
+	line-height:40px;
+	cursor: pointer;
+}
+.cartlist li:after {
+	content:'|';
+	margin-left: 20px;
+}
+.cartlist li:hover {
+	border-bottom: 1px solid #ff4400;	
+}
+.selectAll {
+	width:100%;
+	height:46px;
+	line-height: 46px;
+	padding-left:20px;
+}
+
+.selectAll span {
+	display:inline-block;
+}
+.selectAll span:nth-child(2) {
+	margin-left:75px;
+}
+.selectAll span:nth-child(3) {
+	margin-left:375px;
+}
+.selectAll span:nth-child(4) {
+	margin-left:81px;
+}
+.selectAll span:nth-child(5) {
+	margin-left:80px;
+}
+.selectAll span:nth-child(6) {
+	margin-left:90px;
+}
+/*购物车详情*/
+.main-cart {
+	width:100%;
+	height:auto;
+	
+}
+.cartgoods {
+	background: #fff8e1;
+	cursor:pointer;
+	border: 1px solid #ddd;
+}
+.good-top {
+	line-height: 38px;
+	border-bottom: 1px solid #ccc;
+	background: #fff8e1;
+}
+.good-top a {
+	display: inline-block;
+	width:64px;
+	height:22px;
+	line-height: 22px;
+	background: #e5e5e5;
+    margin-left: 30px;
+    text-align: center;
+}
+
+.goodmsg {
+	height:auto;
+	overflow: hidden;
+	padding:20px;
+	border-bottom: 1px solid #ccc;
+}
+.goodpic {
+	margin:0 12px;
+}
+.goodpic img {
+    width: 50px;
+	border:1px solid #ddd;
+}
+.carttitle {
+	width:187px;
+	font-size: 12px;
+	margin-right: 243px;
+}
+.cartprice {
+	/*line-height:75px;*/
+	font-weight: 600;
+	margin-right:47px;
+}
+.goodnum {
+    width: 102px;
+    height: 25px;
+    background: #f0f0f0;
+    margin-right: 42px;
+    padding: 0 5px;
+}
+.goodnum input {
+    width: 38px;
+    height: 21px;
+    border: 1px solid #aaaaaa;
+    text-indent: 5px;
+}
+.goodnum span{
+    display: inline-block;
+    margin-right: 6px;
+    height: 20px;
+    width: 20px;
+    /*background: red;*/
+    line-height: 20px;
+    text-align: center;
+}
+.rowprice {
+	color:#ff4400;
+	margin-right:60px;
+}
+
+.good-bottom {
+	width:100%;
+	height:50px;
+	line-height:50px;
+	margin-top:15px;
+	background: #e5e5e5;
+}
+.alloper a{
+	display: inline-block;
+	padding:0 15px;
+}
+
+.num {
+    margin-right: 215px;
+}
+.num span{
+	font-size:16px;
+}
+.alltotal {
+	margin-right: 120px;
+}
+.alltotal span{
+	font-size: 16px;
+    font-weight: 600;
+    color: red;
+}
+.totalcart{
+	width: 120px;
+    height: 50px;
+    border: 0;
+    background: red;
+    color: #fff;
+    font-size: 16px;
+}

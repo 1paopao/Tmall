@@ -38,6 +38,7 @@ function checkRegister() {
 				//判断数据库中是否有该用户
 				if(data[i].phone == sPhone) {
 					alert('该用户已存在！');
+					$('#phone').val('');
 					$('#phone').focus();
 					return false;
 				}
@@ -50,6 +51,7 @@ function checkRegister() {
 		//验证码
 		if(sYzm === '' || sYzm != str1) {
 			alert('请输入正确的验证码！');
+			$('#yzm').val('');
 			$('#yzm').focus();
 			return false;
 		} 
